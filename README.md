@@ -51,7 +51,7 @@ from an API and displays them to the user.  When the user clicks on one of the
 widgets, you will display a detail view of the widget.
 
 In the list view of the widgets, you will also implement filters so that the user
-can filter widgets on the `name` and `type` fields.
+can filter widgets on the `name` and `size` fields.
 
 For the purposes of this exercise, the API has been mocked out for you.  Each
 of the installed frameworks contains an API client, which you should use to
