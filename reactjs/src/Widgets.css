@@ -1,0 +1,16 @@
+.Widgets {
+   text-align: left;
+}
+.Widgets input {
+   margin-left: 10px;
+   font-size: 10px;
+   border-radius: 10px;
+   outline: none;
+}
+.Widgets td, .Widgets th {
+    text-align: left;
+    padding: 1px 10px;
+}
+.Widgets tbody tr:nth-child(odd) {
+    background-color: #ccc;
+}
