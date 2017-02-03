@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import './Widgets.css';
 
+function noop() {}
+
 class Widgets extends Component {
   static propTypes = {
     /** Widget data structure (an array of objects having name, size and capacity attributes). */
@@ -11,12 +13,17 @@ class Widgets extends Component {
   
   static defaultProps = {
     data: [],
+    onSearchChange: noop,
   };
+  
+  handleSearchChange = (event) => {
+    this.props.onSearchChange({value: event.target.value});
+  }
   
   renderResults() {
     return (
       <div className="Widgets">
-        <input type="search" class="form-control" placeholder="Search"/>
+        <input type="search" placeholder="Search..." onChange={this.handleSearchChange} />
         <table>
           <thead>
             <tr>
