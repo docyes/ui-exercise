@@ -53,7 +53,7 @@ class Widgets extends Component {
                 <td>{row.capacity}</td>
               </tr>
             ))}
-            {this.state.data.length === 0 && <tr><td colSpan="3">No Results</td></tr> }
+            {this.state.data.length === 0 && <tr><td colSpan="3" className="info">No Results</td></tr> }
           </tbody>
         </table>
       </div>

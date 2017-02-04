@@ -1,3 +1,6 @@
 .Widgets .form-inline {
   text-align: right;
 }
+.Widgets table {
+    table-layout: fixed;
+}
