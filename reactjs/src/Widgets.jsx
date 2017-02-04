@@ -4,8 +4,12 @@ import './Widgets.css';
 
 class Widgets extends Component {
   static propTypes = {
-    /** Widget data structure (an array of objects having name, size and capacity attributes). */
-    data: PropTypes.array,
+    /** Widget data structure. */
+    data: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      size: PropTypes.string.isRequired,
+      capacity: PropTypes.number.isRequired,
+    })),
   };
 
   static defaultProps = {
