@@ -22,6 +22,7 @@ class Widgets extends Component {
   handleSearchChange = (event) => {
     const value = event.target.value;
     const options = {
+      shouldSort: false,
       keys: ['name'],
     };
     const fuse = new Fuse(this.props.data, options);
