@@ -1,3 +1,4 @@
+import Fuse from 'fuse.js';
 import React, { Component, PropTypes } from 'react';
 import './Widgets.css';
 
@@ -18,12 +19,14 @@ class Widgets extends Component {
     };
   }
 
-  handleSearchChange = () => {
-    // TODO add fuzzy search and const value = event.target.value;
-    function isMatch() {
-      return true;
-    }
-    this.setState({ data: this.state.data.filter(isMatch) });
+  handleSearchChange = (event) => {
+    const value = event.target.value;
+    const options = {
+      keys: ['name'],
+    };
+    const fuse = new Fuse(this.props.data, options);
+    const data = value ? fuse.search(value) : this.props.data;
+    this.setState({ data });
   }
 
   render() {
