@@ -1,28 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import './Widgets.css';
 
-function noop() {}
-
 class Widgets extends Component {
   static propTypes = {
     /** Widget data structure (an array of objects having name, size and capacity attributes). */
-    data: React.PropTypes.array,
-    /** A callback that receives the value of a user input search filter. */
-    onSearchChange: PropTypes.func,
+    data: PropTypes.array,
   };
 
   static defaultProps = {
     data: [],
-    onSearchChange: noop,
   };
 
-  handleSearchChange = (event) => {
-    this.props.onSearchChange({ value: event.target.value });
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      data: props.data,
+    };
   }
 
-  renderResults() {
+  handleSearchChange = () => {
+    // TODO add fuzzy search and const value = event.target.value;
+    function isMatch() {
+      return true;
+    }
+    this.setState({ data: this.state.data.filter(isMatch) });
+  }
+
+  render() {
     return (
-      <div>
+      <div className="Widgets">
         <form className="form-inline">
           <div className="form-group">
             <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} />
@@ -37,29 +43,16 @@ class Widgets extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.data.map(row => (
+            {this.state.data.map(row => (
               <tr key={row.name}>
                 <td>{row.name}</td>
                 <td>{row.size}</td>
                 <td>{row.capacity}</td>
               </tr>
             ))}
+            {this.state.data.length === 0 && <tr><td colSpan="3">No Results</td></tr> }
           </tbody>
         </table>
-      </div>
-    );
-  }
-
-  renderNoResults() {
-    return (
-      <p>No Results</p>
-    );
-  }
-
-  render() {
-    return (
-      <div className="Widgets">
-        {this.props.data.length ? this.renderResults() : this.renderNoResults()}
       </div>
     );
   }

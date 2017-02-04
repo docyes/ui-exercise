@@ -9,25 +9,16 @@ const api = new Api();
 class App extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {};
-    api.getWidgets().then(widgets => this.setState({ widgets }));
-  }
-  
-  handleSearchChange = ({value}) => {
-    const widgets = this.state.widgets;
-    const isMatch = function(element) {
-       return true;
-    }
-    if (widgets !== undefined) {
-      var filtered = widgets.filter(isMatch);
-      this.setState({ widgets: filtered });
-    }
+    this.state = {
+        loading: true
+    };
+    api.getWidgets().then(widgets => this.setState({ loading: false, widgets }));
   }
   
   render() {
     return (
       <div className="App">
-        {this.state.widgets === undefined ? <Loading /> : <Widgets data={this.state.widgets} onSearchChange={this.handleSearchChange} />}
+        {this.state.loading ? <Loading /> : <Widgets data={this.state.widgets} />}
       </div>
     );
   }
