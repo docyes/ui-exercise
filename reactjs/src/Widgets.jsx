@@ -14,6 +14,10 @@ class Widgets extends Component {
 
   constructor(props, context) {
     super(props, context);
+    this.fuse = new Fuse(this.props.data, {
+      shouldSort: false,
+      keys: ['name'],
+    });
     this.state = {
       data: props.data,
     };
@@ -21,12 +25,7 @@ class Widgets extends Component {
 
   handleSearchChange = (event) => {
     const value = event.target.value;
-    const options = {
-      shouldSort: false,
-      keys: ['name'],
-    };
-    const fuse = new Fuse(this.props.data, options);
-    const data = value ? fuse.search(value) : this.props.data;
+    const data = value ? this.fuse.search(value) : this.props.data;
     this.setState({ data });
   }
 
