@@ -23,6 +23,10 @@ class Widgets extends Component {
     };
   }
 
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+  }
+
   handleSearchChange = (event) => {
     const value = event.target.value;
     const data = value ? this.fuse.search(value) : this.props.data;
@@ -32,7 +36,7 @@ class Widgets extends Component {
   render() {
     return (
       <div className="Widgets">
-        <form className="form-inline">
+        <form className="form-inline" onSubmit={this.handleFormSubmit}>
           <div className="form-group">
             <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} />
           </div>
