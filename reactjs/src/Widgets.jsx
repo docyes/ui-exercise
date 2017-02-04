@@ -23,13 +23,17 @@ class Widgets extends Component {
   renderResults() {
     return (
       <div>
-        <input type="search" placeholder="Search..." onChange={this.handleSearchChange} />
-        <table>
+        <form className="form-inline">
+          <div className="form-group">
+            <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} />
+          </div>
+        </form>
+        <table className="table table-striped">
           <thead>
             <tr>
-              <th><a href="">Name</a></th>
-              <th><a href="">Size</a></th>
-              <th><a href="">Capacity</a></th>
+              <th>Name</th>
+              <th>Size</th>
+              <th>Capacity</th>
             </tr>
           </thead>
           <tbody>
