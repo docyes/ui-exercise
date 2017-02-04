@@ -10,19 +10,19 @@ class Widgets extends Component {
     /** A callback that receives the value of a user input search filter. */
     onSearchChange: PropTypes.func,
   };
-  
+
   static defaultProps = {
     data: [],
     onSearchChange: noop,
   };
-  
+
   handleSearchChange = (event) => {
-    this.props.onSearchChange({value: event.target.value});
+    this.props.onSearchChange({ value: event.target.value });
   }
-  
+
   renderResults() {
     return (
-      <div className="Widgets">
+      <div>
         <input type="search" placeholder="Search..." onChange={this.handleSearchChange} />
         <table>
           <thead>
@@ -30,7 +30,6 @@ class Widgets extends Component {
               <th><a href="">Name</a></th>
               <th><a href="">Size</a></th>
               <th><a href="">Capacity</a></th>
-              
             </tr>
           </thead>
           <tbody>
@@ -45,17 +44,19 @@ class Widgets extends Component {
         </table>
       </div>
     );
-  };
-  
+  }
+
   renderNoResults() {
     return (
       <p>No Results</p>
     );
-  };
-  
+  }
+
   render() {
     return (
-      this.props.data.length ? this.renderResults() : this.renderNoResults()
+      <div className="Widgets">
+        {this.props.data.length ? this.renderResults() : this.renderNoResults()}
+      </div>
     );
   }
 }
