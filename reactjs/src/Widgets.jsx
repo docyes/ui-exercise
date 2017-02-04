@@ -27,6 +27,10 @@ class Widgets extends Component {
     };
   }
 
+  componentDidMount(){
+      this.input.focus();
+  }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
   }
@@ -42,7 +46,7 @@ class Widgets extends Component {
       <div className="Widgets">
         <form className="form-inline" onSubmit={this.handleFormSubmit}>
           <div className="form-group">
-            <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} />
+            <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} ref={(input) => { this.input = input; }} />
           </div>
         </form>
         <table className="table table-striped">
