@@ -20,7 +20,7 @@ class Widgets extends Component {
     super(props, context);
     this.fuse = new Fuse(this.props.data, {
       shouldSort: false,
-      keys: ['name'],
+      keys: ['name', 'size'],
     });
     this.state = {
       data: props.data,
@@ -49,12 +49,11 @@ class Widgets extends Component {
             <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} ref={(input) => { this.input = input; }} />
           </div>
         </form>
-        <table className="table table-striped">
+        <table className="table table-striped table-hover">
           <thead>
             <tr>
               <th>Name</th>
               <th>Size</th>
-              <th>Capacity</th>
             </tr>
           </thead>
           <tbody>
@@ -62,7 +61,6 @@ class Widgets extends Component {
               <tr key={row.name}>
                 <td>{row.name}</td>
                 <td>{row.size}</td>
-                <td>{row.capacity}</td>
               </tr>
             ))}
             {this.state.data.length === 0 && <tr><td colSpan="3" className="info">No Results</td></tr> }
