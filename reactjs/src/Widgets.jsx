@@ -27,8 +27,8 @@ class Widgets extends Component {
     };
   }
 
-  componentDidMount(){
-      this.input.focus();
+  componentDidMount() {
+    this.input.focus();
   }
 
   handleFormSubmit = (event) => {
