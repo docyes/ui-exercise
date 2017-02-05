@@ -1,2 +1,9 @@
-.Widgets {
+.Widget {
+  padding: 0px 0px 0px 8px;
+}
+.Widget h1 {
+  margin-bottom: 9px;
+}
+.Widget dl {
+  padding-left: 0px;
 }

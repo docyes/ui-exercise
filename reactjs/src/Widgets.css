@@ -1,6 +1,9 @@
 .Widgets .form-inline {
   text-align: right;
 }
+.Widgets .form-group {
+  top: 12px;
+}
 .Widgets .header {
   position:relative;
   margin-left: 8px;
