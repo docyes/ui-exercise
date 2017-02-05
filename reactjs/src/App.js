@@ -10,11 +10,11 @@ class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-        loading: true
+      loading: true,
     };
     api.getWidgets().then(widgets => this.setState({ loading: false, widgets }));
   }
-  
+
   render() {
     return (
       <div className="App">

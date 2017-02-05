@@ -1,6 +1,15 @@
 .Widgets .form-inline {
   text-align: right;
 }
+.Widgets .header {
+  position:relative;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.Widgets .header h1 {
+   position: absolute;
+   left: 0px;
+}
 .Widgets table {
     table-layout: fixed;
 }

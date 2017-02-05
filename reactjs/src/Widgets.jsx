@@ -48,12 +48,15 @@ class Widgets extends Component {
   render() {
     return (
       <div className="Widgets">
-        <form className="form-inline" onSubmit={this.preventDefault}>
-          <div className="form-group has-feedback">
-            <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} ref={(input) => { this.input = input; }} />
-            <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" />
-          </div>
-        </form>
+        <div className="header">
+          <h1 className="h4">Widget Listings</h1>
+          <form className="form-inline" onSubmit={this.preventDefault}>
+            <div className="form-group has-feedback">
+              <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} ref={(input) => { this.input = input; }} />
+              <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" />
+            </div>
+          </form>
+        </div>
         <table className="table table-striped table-hover">
           <thead>
             <tr>
