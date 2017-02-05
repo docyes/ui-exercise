@@ -36,7 +36,6 @@ class Widgets extends Component {
   }
 
   handleDetailsClick = (event) => {
-    //emit view details event
     event.preventDefault(event);
   }
 
@@ -68,7 +67,7 @@ class Widgets extends Component {
               <tr key={row.name}>
                 <td>{row.name}</td>
                 <td>{row.size}</td>
-                <td><a href="#" data-id={row.name} onClick={this.handleDetailsClick}>Details</a></td>
+                <td><a href="#details" data-id={row.name} onClick={this.handleDetailsClick}>Details</a></td>
               </tr>
             ))}
             {this.state.data.length === 0 && <tr><td colSpan="3" className="info">No Results</td></tr> }
