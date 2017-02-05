@@ -1,15 +1,13 @@
 import Fuse from 'fuse.js';
 import React, { Component, PropTypes } from 'react';
+import widgetProptype from './proptypes/widget';
 import './Widgets.css';
 
 class Widgets extends Component {
   static propTypes = {
     /** Widget data structure. */
-    data: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      size: PropTypes.string.isRequired,
-      capacity: PropTypes.number.isRequired,
-    })),
+    data: PropTypes.arrayOf(widgetProptype),
+    onDetailsClick: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -36,6 +34,7 @@ class Widgets extends Component {
   }
 
   handleDetailsClick = (event) => {
+    this.props.onDetailsClick(event.target.getAttribute('data-id'));
     event.preventDefault(event);
   }
 

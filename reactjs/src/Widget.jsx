@@ -1,28 +1,32 @@
 import React, { PropTypes } from 'react';
+import widgetProptype from './proptypes/widget';
 import './Widget.css';
 
 const propTypes = {
-  name: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
-  capacity: PropTypes.number.isRequired,
+  data: widgetProptype,
+  onBackClick: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
 };
 
 function Widget(props) {
+  const { data, onBackClick } = props;
+  function handleBackCick() {
+    onBackClick();
+  }
   return (
     <div className="Widget">
       <h1 className="h4">Widget Details</h1>
       <dl className="Widget">
         <dt>Name</dt>
-        <dd>{props.name}</dd>
+        <dd>{data.name}</dd>
         <dt>Size</dt>
-        <dd>{props.size}</dd>
+        <dd>{data.size}</dd>
         <dt>Capacity</dt>
-        <dd>{props.capacity}</dd>
+        <dd>{data.capacity}</dd>
       </dl>
-      <button type="button" className="btn btn-primary">Back</button>
+      <button type="button" className="btn btn-primary" onClick={handleBackCick}>Back</button>
     </div>
   );
 }
