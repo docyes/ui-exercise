@@ -31,8 +31,13 @@ class Widgets extends Component {
     this.input.focus();
   }
 
-  handleFormSubmit = (event) => {
+  preventDefault = (event) => {
     event.preventDefault();
+  }
+
+  handleDetailsClick = (event) => {
+    //emit view details event
+    event.preventDefault(event);
   }
 
   handleSearchChange = (event) => {
@@ -44,7 +49,7 @@ class Widgets extends Component {
   render() {
     return (
       <div className="Widgets">
-        <form className="form-inline" onSubmit={this.handleFormSubmit}>
+        <form className="form-inline" onSubmit={this.preventDefault}>
           <div className="form-group has-feedback">
             <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} ref={(input) => { this.input = input; }} />
             <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" />
@@ -55,6 +60,7 @@ class Widgets extends Component {
             <tr>
               <th>Name</th>
               <th>Size</th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -62,6 +68,7 @@ class Widgets extends Component {
               <tr key={row.name}>
                 <td>{row.name}</td>
                 <td>{row.size}</td>
+                <td><a href="#" data-id={row.name} onClick={this.handleDetailsClick}>Details</a></td>
               </tr>
             ))}
             {this.state.data.length === 0 && <tr><td colSpan="3" className="info">No Results</td></tr> }
