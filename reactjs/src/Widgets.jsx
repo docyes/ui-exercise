@@ -47,7 +47,7 @@ class Widgets extends Component {
         <form className="form-inline" onSubmit={this.handleFormSubmit}>
           <div className="form-group has-feedback">
             <input type="search" placeholder="Search..." className="form-control input-sm" onChange={this.handleSearchChange} ref={(input) => { this.input = input; }} />
-            <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+            <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" />
           </div>
         </form>
         <table className="table table-striped table-hover">
